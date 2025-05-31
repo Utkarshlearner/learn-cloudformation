@@ -87,21 +87,15 @@ The `--capabilities` flag is required when your CloudFormation template **create
 | `CAPABILITY_AUTO_EXPAND` | Required when using AWS CloudFormation macros                           |
 
 👉 Most common usage:
-```bash
+```
 --capabilities CAPABILITY_NAMED_IAM
+```
+
 
 ## 🧑‍💻 About Me
 
 Utkarsh Rastogi — Cloud Specialist | AWS Community Builder  
-
-🌐 (https://awslearner.hashnode.dev)  
 📍 Based in India  
-
-🏆 Certifications:
-- AWS Certified Solutions Architect – Associate  
-- AWS Certified Cloud Practitioner  
-- Terraform Associate  
-- Microsoft Azure Fundamentals  
 
 🚀 Passionate about building serverless, AI-powered, cloud-native solutions.
 
