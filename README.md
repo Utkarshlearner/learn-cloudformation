@@ -97,6 +97,8 @@ The `--capabilities` flag is required when your CloudFormation template **create
 Utkarsh Rastogi — Cloud Specialist | AWS Community Builder  
 📍 Based in India  
 
+🌐 Blog: [https://awslearner.hashnode.dev](https://awslearner.hashnode.dev)  
+
 🚀 Passionate about building serverless, AI-powered, cloud-native solutions.
 
 ---
