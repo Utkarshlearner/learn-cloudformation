@@ -67,6 +67,9 @@ aws cloudformation create-stack \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
+### 🔁 3. Update the Stack
+Same command as deploy — CloudFormation checks if the stack exists and updates it.
+
 ### 🧹 4. Delete the Stack
 ```
 aws cloudformation delete-stack \
@@ -90,6 +93,20 @@ The `--capabilities` flag is required when your CloudFormation template **create
 ```
 --capabilities CAPABILITY_NAMED_IAM
 ```
+
+## 📄 YAML vs JSON for CloudFormation
+
+| Feature               | YAML(Yet Another Markup Language)                                                 | JSON(JavaScript Object Notation)                                                  |
+|-----------------------|--------------------------------------------------------|---------------------------------------------------------|
+| **Readability**        | ✅ Human-readable and clean                            | ❌ Verbose and harder to scan visually                  |
+| **Comments Support**   | ✅ Yes (use `#`)                                       | ❌ No native support for comments                       |
+| **Trailing Commas**    | ✅ Allowed (ignored)                                   | ❌ Not allowed                                          |
+| **Syntax Complexity**  | ✅ Minimal punctuation (indentation-based)             | ❌ Strict syntax with brackets and quotes               |
+| **Used In CloudFormation** | ✅ Preferred by AWS and community                | ✅ Still fully supported                                |
+| **Learning Curve**     | 🟢 Easier for beginners                                | 🟡 Slightly steeper due to syntax strictness           |
+| **File Size**          | ⚡ Generally smaller due to fewer characters           | 📦 Larger because of all the punctuation                |
+| **Error-Prone?**       | ❗ Indentation-sensitive (can break easily)            | ❗ Syntax-sensitive (missing comma or quote breaks it)   |
+| **Tool Compatibility** | ✅ Supported in most modern IaC tools                  | ✅ Universally supported in APIs and parsers            |
 
 
 ## 🧑‍💻 About Me

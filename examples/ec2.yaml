@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Launch EC2 instance based and region-specific AMI
+
+Parameters:
+  EnvType:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, prod]
+
+  InstanceType:
+    Type: String
+    Default: t2.micro
+
+Mappings:
+  AMIMap:
+    us-east-1:
+      AMI: ami-0953476d60561c955
+    us-west-1:
+      AMI: ami-0bdb828fd58c52235
+    ap-south-1:
+      AMI: ami-03f4878755434977f
+
+Resources:
+  MyEC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: !FindInMap [AMIMap, !Ref "AWS::Region", AMI]
+      Tags:
+        - Key: Project
+          Value: cloudformation-learning
+        - Key: Environment
+          Value: !Ref EnvType
+
+Outputs:
+  InstanceID:
+    Description: EC2 instance ID
+    Value: !Ref MyEC2

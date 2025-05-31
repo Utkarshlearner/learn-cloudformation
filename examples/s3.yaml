@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create a S3 bucket with environment condition
+
+Parameters:
+  EnvType:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, prod]
+
+  BucketName:
+    Type: String
+    Default: "cloudformation-learning-bucket2s"
+
+Conditions:
+  IsProd: !Equals [!Ref EnvType, "dev"]
+
+Resources:
+  MyS3Bucket:
+    Condition: IsProd
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: Project
+          Value: cloudformation-learning
+        - Key: Environment
+          Value: !Ref EnvType
+
+
+Outputs:
+  BucketName:
+    Condition: IsProd
+    Description: Bucket Name
+    Value: !Ref MyS3Bucket

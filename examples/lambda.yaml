@@ -1,0 +1,49 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Inline Lambda function with conditional rolename
+
+Parameters:
+  EnvType:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, prod]
+  LambdaName:
+    Type: String
+    Default: "Demo-Learning"
+
+
+Mappings:
+  LambdaRole:
+    dev:
+      RoleName: DevExecutionRole
+    prod:
+      RoleName: ProdExecutionRole
+
+Resources:
+  MyLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref LambdaName
+      Runtime: python3.10
+      Role:
+        Fn::Sub:
+          - arn:aws:iam::${AWS::AccountId}:role/${LambdaRoleName}
+          - LambdaRoleName:
+              Fn::FindInMap:
+                - LambdaRole
+                - Ref: EnvType
+                - RoleName
+      Handler: index.handler
+      Code:
+        ZipFile: |
+          def handler(event, context):
+              return "Hello from Lambda!"
+      Tags:
+        - Key: Project
+          Value: cloudformation-learning
+        - Key: Environment
+          Value: !Ref EnvType
+
+Outputs:
+  FunctionName:
+    Description: Lambda function name
+    Value: !Ref MyLambdaFunction

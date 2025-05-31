@@ -1,0 +1,88 @@
+🚀 Deployment Steps
+------------------------------------------------------------------------------
+Make sure the AWS CLI is configured (aws configure) before running these commands.
+
+
+1) Creating S3 Bucket with yaml
+
+    a) Validate Template
+        aws cloudformation validate-template --template-body file://s3.yaml
+
+    
+    b) Deploy Template
+        aws cloudformation deploy --template-file s3.yaml --stack-name S3-Stack --capabilities CAPABILITY_NAMED_IAM
+
+        OR
+
+        aws cloudformation create-stack --stack-name S3-Stack  --template-body file://s3.yaml --capabilities CAPABILITY_NAMED_IAM
+
+    c) Delete Stack
+        aws cloudformation delete-stack --stack-name S3-Stack
+
+
+2) Creating IAM Role
+
+    a) Validate Template
+        aws cloudformation validate-template --template-body file://iam.yaml
+
+    
+    b) Deploy Template
+        aws cloudformation deploy --template-file iam.yaml --stack-name IAM-Stack --capabilities CAPABILITY_NAMED_IAM
+
+        OR
+
+        aws cloudformation create-stack --stack-name IAM-Stack  --template-body file://iam.yaml --capabilities CAPABILITY_NAMED_IAM
+
+    c) Delete Stack
+        aws cloudformation delete-stack --stack-name IAM-Stack
+
+
+3) Creating LAMBDA
+
+    a) Validate Template
+        aws cloudformation validate-template --template-body file://lambda.yaml
+
+    
+    b) Deploy Template
+        aws cloudformation deploy --template-file lambda.yaml --stack-name Lambda-Stack --capabilities CAPABILITY_NAMED_IAM
+
+        OR
+
+        aws cloudformation create-stack --stack-name Lambda-Stack  --template-body file://lambda.yaml --capabilities CAPABILITY_NAMED_IAM
+
+    c) Delete Stack
+        aws cloudformation delete-stack --stack-name Lambda-Stack
+
+
+4) Creating EC2
+
+    a) Validate Template
+        aws cloudformation validate-template --template-body file://ec2.yaml
+
+    
+    b) Deploy Template
+        aws cloudformation deploy --template-file ec2.yaml --stack-name EC2-Stack --capabilities CAPABILITY_NAMED_IAM
+
+        OR
+
+        aws cloudformation create-stack --stack-name EC2-Stack  --template-body file://ec2.yaml --capabilities CAPABILITY_NAMED_IAM
+
+    c) Delete Stack
+        aws cloudformation delete-stack --stack-name EC2-Stack
+
+
+5) Creating S3 Bucket with JSON
+
+    a) Validate Template
+        aws cloudformation validate-template --template-body file://s3_bucket.json
+
+    
+    b) Deploy Template
+        aws cloudformation deploy --template-file s3_bucket.json --stack-name S3-Json-Stack --capabilities CAPABILITY_NAMED_IAM
+
+        OR
+
+        aws cloudformation create-stack --stack-name S3-Json-Stack  --template-body file://s3_bucket.json --capabilities CAPABILITY_NAMED_IAM
+
+    c) Delete Stack
+        aws cloudformation delete-stack --stack-name S3-Json-Stack
