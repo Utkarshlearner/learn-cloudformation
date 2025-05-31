@@ -61,7 +61,7 @@ aws cloudformation validate-template \
 
 ### 🚀 2. Deploy the Stack
 ```
-aws cloudformation create-stack \
+aws cloudformation deploy  \
   --template-file your-template.yaml \
   --stack-name YourStackName \
   --capabilities CAPABILITY_NAMED_IAM
@@ -114,7 +114,7 @@ The `--capabilities` flag is required when your CloudFormation template **create
 Utkarsh Rastogi — Cloud Specialist | AWS Community Builder  
 📍 Based in India  
 
-🌐 Blog: [https://awslearner.hashnode.dev](https://awslearner.hashnode.dev)  
+🌐 Blog: [https://dev.to/aws-builders/my-cloudformation-yatra-architecting-aws-like-an-epic-india-trip-2gkp](https://dev.to/aws-builders/my-cloudformation-yatra-architecting-aws-like-an-epic-india-trip-2gkp)  
 
 🚀 Passionate about building serverless, AI-powered, cloud-native solutions.
 

@@ -14,8 +14,9 @@ Make sure the AWS CLI is configured (aws configure) before running these command
 
         OR
 
-        aws cloudformation create-stack --stack-name S3-Stack  --template-body file://s3.yaml --capabilities CAPABILITY_NAMED_IAM
+        aws cloudformation create-stack --stack-name S3-Stack1  --template-body file://s3.yaml --capabilities CAPABILITY_NAMED_IAM
 
+        aws cloudformation update-stack --stack-name S3-Stack1  --template-body file://s3.yaml --capabilities CAPABILITY_NAMED_IAM
     c) Delete Stack
         aws cloudformation delete-stack --stack-name S3-Stack
 

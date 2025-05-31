@@ -9,7 +9,7 @@ Parameters:
 
   BucketName:
     Type: String
-    Default: "cloudformation-learning-bucket"
+    Default: "cloudformation-learning-bucket12"
 
 Conditions:
   IsProd: !Equals [!Ref EnvType, "dev"]

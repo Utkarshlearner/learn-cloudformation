@@ -17,8 +17,8 @@ Mappings:
       AMI: ami-0953476d60561c955
     us-west-1:
       AMI: ami-0bdb828fd58c52235
-    ap-south-1:
-      AMI: ami-03f4878755434977f
+    ap-south-2:
+      AMI: ami-00dfdb609405db72c
 
 Resources:
   MyEC2:
